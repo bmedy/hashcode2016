@@ -15,7 +15,7 @@ public class Drone {
     private static Drone     fakeDrone;
     public long              id;
     public List<Instruction> instructions = new ArrayList<>();
-    public long              payload = Grid.payload;
+    public long              payload      = Grid.payload;
     public long              currentRow;
     public long              currentColumn;
 
@@ -79,7 +79,7 @@ public class Drone {
         long dist = occupation;
         dist += Distance.distance(currentRow, currentColumn, warehouse.r, warehouse.c);
         dist += Distance.distance(warehouse.r, warehouse.c, command.targetRow, command.targetColumn);
-        return dist;
+        return Grid.payload <= dist ? Long.MAX_VALUE : dist;
     }
 
     @Override
