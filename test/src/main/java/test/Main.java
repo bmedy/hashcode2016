@@ -12,9 +12,8 @@ public class Main {
 		
 		try (BufferedReader br = new BufferedReader(new FileReader("/tmp/example.in")))
 		{
-
 			parser.readGrid(br.readLine());
-
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
