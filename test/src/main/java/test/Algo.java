@@ -21,28 +21,28 @@ public class Algo {
         optimisationCommandOrder(Grid.commands).forEach(command -> resolveCommand(command));
     }
 
-    public static Drone findAvailableDrone() {
-//    	long min = Long.MAX_VALUE;
-//    	Drone drone = null;
-//    	for (Drone drone : Grid.drone_s) {
-//    		long dist = drone.getDistance(warehouse, command);
-//    		if (drone == null) {
-//    			
-//    		}
-//    	}
-//    	Grid.drone_s.stream().map(drone -> new Pair<Drone, Long>(drone, drone.getDistance(warehouse, command)))
-//    	.reduce((p1, p2) -> Math.min(p1.second, p2.));
-//    	
-        Drone res = null;
-        long min = Long.MAX_VALUE;
-        for (Drone drone : Grid.drone_s) {
-            long tmp = drone.occupation;
-            if (tmp < min) {
-                min = tmp;
-                res = drone;
-            }
-        }
-        return res;
+    public static Drone findAvailableDrone(Warehouse warehouse, Command command) {
+    	long min = Long.MAX_VALUE;
+    	Drone drone = null;
+    	for (Drone currentD : Grid.drone_s) {
+    		long dist = currentD.getDistance(warehouse, command);
+    		if (drone == null || min > dist) {
+    			drone = currentD;
+    			min = dist;
+    		}
+    	}
+    	return drone;
+//
+//        Drone res = null;
+//        long min = Long.MAX_VALUE;
+//        for (Drone drone : Grid.drone_s) {
+//            long tmp = drone.occupation;
+//            if (tmp < min) {
+//                min = tmp;
+//                res = drone;
+//            }
+//        }
+//        return res;
     }
 
     /**
@@ -84,7 +84,7 @@ public class Algo {
     public static void sendAllFromWarehouse(Warehouse warehouse, Item item, long quantity, Command command) {
         long remainsQty = quantity;
         while (remainsQty > 0) {
-            Drone drone = findAvailableDrone();
+            Drone drone = findAvailableDrone(warehouse, command);
             long qtyTakeByDrone = drone.deliver(warehouse, item, quantity, command);
             System.out.println("       drone : " + drone.id + ", qty : " + qtyTakeByDrone);
             remainsQty -= qtyTakeByDrone;
