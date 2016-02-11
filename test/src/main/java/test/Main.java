@@ -25,7 +25,11 @@ public class Main {
 		System.out.println();
 		System.out.println();
 		System.out.println("ALGO");
-		Algo.algo();
+		try {
+			Algo.algo();
+		} catch(RuntimeException e) {
+			System.out.println(e);
+		}
 		System.out.println();
 		System.out.println();
 		System.out.println();
