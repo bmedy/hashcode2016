@@ -72,7 +72,7 @@ public class Algo {
             System.out.println("       item : " + item.id + ", qty : " + quantity);
             long remainsQty = quantity;
             while (remainsQty > 0) {
-                Pair<Warehouse, Long> warehouseToQty = findWarehouseFor(item, quantity);
+                Pair<Warehouse, Long> warehouseToQty = findWarehouseFor(item, remainsQty);
                 System.out
                         .println("       warehouse : " + warehouseToQty.first.id + ", qty : " + warehouseToQty.second);
                 sendAllFromWarehouse(warehouseToQty.first, item, warehouseToQty.second, command);
