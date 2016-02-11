@@ -31,7 +31,8 @@ public class Command {
     }
     
     @Override
-    public String toString() {
-    	return "command : " + id;
-    }
+	public String toString() {
+		return "Command [id=" + id + ", itemToQuantity=" + itemToQuantity + ", targetRow=" + targetRow
+				+ ", targetColumn=" + targetColumn + "]";
+	}
 }

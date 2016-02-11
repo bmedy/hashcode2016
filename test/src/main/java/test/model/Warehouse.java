@@ -44,7 +44,7 @@ public class Warehouse {
     }
     
     @Override
-    public String toString() {
-    	return "Warehouse : " + id;
-    }
+	public String toString() {
+		return "Warehouse [id=" + id + ", r=" + r + ", c=" + c + ", items=" + items + "]";
+	}
 }

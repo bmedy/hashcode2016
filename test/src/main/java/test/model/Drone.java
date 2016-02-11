@@ -58,7 +58,8 @@ public class Drone {
     }
     
     @Override
-    public String toString() {
-    	return "drone : "  + id;
-    }
+	public String toString() {
+		return "Drone [id=" + id + ", instructions=" + instructions + ", payload=" + payload + ", currentRow="
+				+ currentRow + ", currentColumn=" + currentColumn + ", occupation=" + occupation + "]";
+	}
 }
