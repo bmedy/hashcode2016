@@ -1,6 +1,8 @@
 package test;
 
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.stream.Stream;
 
 import test.model.Command;
 import test.model.Drone;
@@ -10,8 +12,13 @@ import test.model.Warehouse;
 
 public class Algo {
 
+	public static Stream<Command> optimisationCommandOrder(List<Command> commands) {
+		// OPTIMISATION POSSIBLE : optimiser l'ordre d'exécution des commandes
+		return commands.stream();
+	}
+	
 	public static void algo() {
-		Grid.commands.stream().forEach(command -> resolveCommand(command));
+		optimisationCommandOrder(Grid.commands).forEach(command -> resolveCommand(command));
 	}
 	
 	public static void resolveCommand(Command command) {
