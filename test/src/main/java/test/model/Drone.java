@@ -69,7 +69,7 @@ public class Drone {
         long dist = occupation;
         dist += Distance.distance(currentRow, currentColumn, warehouse.r, warehouse.c);
         dist += Distance.distance(warehouse.r, warehouse.c, command.targetRow, command.targetColumn);
-        return Grid.payload <= dist ? Long.MAX_VALUE : dist;
+        return Grid.turns <= dist ? Long.MAX_VALUE : dist;
     }
 
     @Override
