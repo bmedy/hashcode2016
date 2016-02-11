@@ -15,7 +15,7 @@ public class Drone {
     private static Drone     fakeDrone;
     public long              id;
     public List<Instruction> instructions = new ArrayList<>();
-    public long              payload;
+    public long              payload = Grid.payload;
     public long              currentRow;
     public long              currentColumn;
 
