@@ -24,14 +24,17 @@ public class Drone {
         deliveredItemCount = deliveredItemCount < qty ? deliveredItemCount : qty;
         warehouse.reduceItemQuantity(item, deliveredItemCount);
 
+        occupation++;
+        occupation += Distance.distance(currentRow, currentColumn, warehouse.r, warehouse.c);
         LoadInstruction load = new LoadInstruction(warehouse.id, item.id, deliveredItemCount);
         instructions.add(load);
 
-        // TODO : calculer le nombre de tours pour faire tout ca
+        currentRow = warehouse.r;
+        currentColumn = warehouse.c;
 
         // Deliver
         occupation += 1;
-        occupation += Distance.distance(currentRow, currentColumn, warehouse.r, warehouse.c);
+        occupation += Distance.distance(currentRow, currentColumn, command.targetRow, command.targetColumn);
         DeliverInstruction deliver = new DeliverInstruction(command.id, item.id, deliveredItemCount);
         instructions.add(deliver);
 
