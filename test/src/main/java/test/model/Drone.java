@@ -16,7 +16,7 @@ public class Drone {
     public long              payload;
     public long              currentRow;
     public long              currentColumn;
-    public long              occupation;
+    public long              occupation   = 0;
 
     public long deliver(Warehouse warehouse, Item item, long qty, Command command) {
 
@@ -37,6 +37,9 @@ public class Drone {
         occupation += Distance.distance(currentRow, currentColumn, command.targetRow, command.targetColumn);
         DeliverInstruction deliver = new DeliverInstruction(command.id, item.id, deliveredItemCount);
         instructions.add(deliver);
+
+        currentRow = command.targetRow;
+        currentColumn = command.targetColumn;
 
         return deliveredItemCount;
 
