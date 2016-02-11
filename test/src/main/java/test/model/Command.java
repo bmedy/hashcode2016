@@ -1,5 +1,8 @@
 package test.model;
 
-public class Command {
+import java.util.List;
+import java.util.Map;
 
+public class Command {
+	public Map<Item, Long> itemToQuantity;
 }
