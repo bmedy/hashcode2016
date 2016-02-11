@@ -6,6 +6,7 @@ import java.util.Map;
 
 public class Warehouse {
 
+    public long            id;
     public int             r;
     public int             c;
     public Map<Item, Long> items;

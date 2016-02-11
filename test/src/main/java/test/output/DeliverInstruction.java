@@ -16,4 +16,11 @@ public class DeliverInstruction extends Instruction {
     public DeliverInstruction() {
         this.type = Instruction.DELIVER;
     }
+
+    public DeliverInstruction(long orderID, long productID, long productCount) {
+        this.type = Instruction.DELIVER;
+        this.orderID = orderID;
+        this.productID = productID;
+        this.productCount = productCount;
+    }
 }

@@ -1,7 +1,9 @@
 package test.model;
 
+
 public class Item {
 
-	public Integer weigth;
-	
+    public long    id;
+    public Integer weigth;
+
 }

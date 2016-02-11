@@ -4,6 +4,7 @@ package test.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import test.output.DeliverInstruction;
 import test.output.Instruction;
 import test.output.LoadInstruction;
 
@@ -16,7 +17,10 @@ public class Drone {
 
         warehouse.reduceItemQuantity(item, qty);
 
-        LoadInstruction load = new LoadInstruction(warehouse);
+        LoadInstruction load = new LoadInstruction(warehouse.id, item.id, qty);
+        DeliverInstruction deliver = new DeliverInstruction(command.id, item.id, qty);
+        instructions.add(load);
+        instructions.add(deliver);
 
     }
 }
