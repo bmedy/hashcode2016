@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -44,9 +45,10 @@ public class Parser {
 			dataLine = it.next();
 			System.out.println(dataLine);
 			line = dataLine.split("\\s+");
-			Grid.items.get(0).weigth = Integer.valueOf(line[0]);
-			Grid.items.get(1).weigth = Integer.valueOf(line[1]);
-			Grid.items.get(2).weigth = Integer.valueOf(line[2]);
+			for(int i = 0; i < line.length; i++){
+				Grid.items.get(i).weigth = Integer.valueOf(line[i]);
+			}
+			System.out.println("items:"+Grid.items.size());
 			
 			// line 4
 			dataLine = it.next();
@@ -57,11 +59,25 @@ public class Parser {
 				
 				line = location.split("\\s+");
 				Warehouse w = new Warehouse(i);
+				w.items = new HashMap<>();
 				w.r = Integer.valueOf(line[0]);
 				w.c = Integer.valueOf(line[1]);
-				// TODO quantity
+				
+				String quantities = it.next();
+				
+				line = quantities.split("\\s+");
+				for(int j = 0; j < line.length; j++){
+					System.out.println("j"+j);
+					Item key = Grid.items.get(j);
+					Long valueOf = Long.valueOf(line[j]);
+					System.out.println(key);
+					System.out.println(valueOf);
+					w.items.put(key,valueOf);	
+				}
 				Grid.warehouses.add(w);
 			}
+			
+			System.out.println("end");
 			
 	}
 }
