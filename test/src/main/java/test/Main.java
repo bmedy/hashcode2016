@@ -15,9 +15,11 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Algo.algo();
 		// print grid
 		Grid.print();
+		// algo
+		System.out.println("ALGO");
+		Algo.algo();
 		// output
 		Grid.drone_s.stream().forEach(drone -> InstructionWriter.flush(drone.instructions));
 	}
