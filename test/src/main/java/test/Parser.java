@@ -35,7 +35,7 @@ public class Parser {
 		Grid.payload = Integer.valueOf(line[4]);
 		
 		for (int i=0;i<Grid.drones; i++){
-			Grid.drone_s.add(new Drone());
+			Grid.drone_s.add(new Drone(i));
 		}
 		
 		// line 2

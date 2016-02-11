@@ -18,6 +18,10 @@ public class Drone {
     public long              currentRow;
     public long              currentColumn;
 
+    public Drone(long id ){
+    	this.id = id;
+    }
+    
     public long occupation = 0;
 
     public long deliver(Warehouse warehouse, Item item, long qty, Command command) {
