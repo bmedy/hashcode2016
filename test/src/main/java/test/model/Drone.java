@@ -12,6 +12,7 @@ import test.utils.Distance;
 
 public class Drone {
 
+	public long id;
     public List<Instruction> instructions = new ArrayList<>();
     public long              payload;
     public long              currentRow;
@@ -50,6 +51,7 @@ public class Drone {
     public static Drone fakeDrone() {
     	if (fakeDrone == null) {
     		fakeDrone = new Drone();
+    		fakeDrone.id = 0;
     	}
     	return fakeDrone;
     }

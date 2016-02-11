@@ -45,12 +45,15 @@ public class Algo {
     }
 
     public static void resolveCommand(Command command) {
+    	System.out.println(command);
         for (Entry<Item, Long> entry : command.itemToQuantity.entrySet()) {
             Item item = entry.getKey();
             Long quantity = entry.getValue();
+        	System.out.println("       item : " + item.id + ", qty : " + quantity);
             long remainsQty = quantity;
             while (remainsQty > 0) {
                 Pair<Warehouse, Long> warehouseToQty = findWarehouseFor(item, quantity);
+            	System.out.println("       warehouse : " + warehouseToQty.first.id + ", qty : " + warehouseToQty.second);
                 sendAllFromWarehouse(warehouseToQty.first, item, warehouseToQty.second, command);
                 remainsQty = remainsQty - warehouseToQty.second;
             }
@@ -62,6 +65,7 @@ public class Algo {
         while (remainsQty > 0) {
             Drone drone = findAvailableDrone();
             long qtyTakeByDrone = drone.deliver(warehouse, item, quantity, command);
+        	System.out.println("       drone : " + drone.id + ", qty : " + qtyTakeByDrone);
             remainsQty -= qtyTakeByDrone;
         }
     }

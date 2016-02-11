@@ -29,4 +29,9 @@ public class Command {
     	}
     	return fakeCommand;
     }
+    
+    @Override
+    public String toString() {
+    	return "command : " + id;
+    }
 }
