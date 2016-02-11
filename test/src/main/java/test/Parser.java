@@ -39,7 +39,11 @@ public class Parser {
 			// line 4
 			Grid.warehouses = new ArrayList<>();
 			for(int i = 0; i < Integer.valueOf(br.readLine()); i++){
-				Grid.warehouses.add(new Warehouse(i));
+				line = br.readLine().split("\\s+");
+				Warehouse w = new Warehouse(i);
+				w.r = Integer.valueOf(line[0]);
+				w.c = Integer.valueOf(line[1]);
+				Grid.warehouses.add();
 			}
 			
 			
