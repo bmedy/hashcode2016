@@ -22,7 +22,7 @@ public class Algo {
 			while (remainsQty > 0) {
 				Pair<Warehouse, Long> warehouseToQty = findWarehouseFor(item, quantity);
 				Drone drone = findAvailableDrone();
-				drone.deliver(warehouseToQty.first, warehouseToQty.second);
+				drone.deliver(warehouseToQty.first, item, warehouseToQty.second, command);
 				remainsQty = remainsQty - warehouseToQty.second;
 			}
 		}
