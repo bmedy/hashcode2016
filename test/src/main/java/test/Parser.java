@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import test.model.Grid;
 import test.model.Item;
+import test.model.Warehouse;
 
 public class Parser {
 
@@ -24,8 +25,8 @@ public class Parser {
 			
 			// line 2
 			Grid.items = new ArrayList<>();
-			for(int i = Integer.valueOf(br.readLine()); i > 0; i--){
-				Grid.items.add(new Item());
+			for(int i = 0; i < Integer.valueOf(br.readLine()); i++){
+				Grid.items.add(new Item(i));
 			}
 			
 			// line 3
@@ -35,6 +36,10 @@ public class Parser {
 			Grid.items.get(2).weigth = Integer.valueOf(line[2]);
 			
 			// line 4
+			Grid.warehouses = new ArrayList<>();
+			for(int i = 0; i < Integer.valueOf(br.readLine()); i++){
+				Grid.warehouses.add(new Warehouse(i));
+			}
 			
 			
 			

@@ -3,7 +3,10 @@ package test.model;
 
 public class Item {
 
-    public long    id;
-    public Integer weigth;
-
+	public Item(long id){
+		this.id = id;
+	}
+	
+	public long    id;
+ 	public Integer weigth;
 }
