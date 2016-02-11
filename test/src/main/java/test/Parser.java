@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import test.model.Command;
+import test.model.Drone;
 import test.model.Grid;
 import test.model.Item;
 import test.model.Warehouse;
@@ -32,6 +33,10 @@ public class Parser {
 		Grid.drones = Integer.valueOf(line[2]);
 		Grid.turns = Integer.valueOf(line[3]);
 		Grid.payload = Integer.valueOf(line[4]);
+		
+		for (int i=0;i<Grid.drones; i++){
+			Grid.drone_s.add(new Drone());
+		}
 		
 		// line 2
 
