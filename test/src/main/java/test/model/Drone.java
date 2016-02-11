@@ -12,7 +12,6 @@ import test.utils.Distance;
 
 public class Drone {
 
-    private static Drone     fakeDrone;
     public long              id;
     public List<Instruction> instructions = new ArrayList<>();
     public long              payload      = Grid.payload;
@@ -20,15 +19,6 @@ public class Drone {
     public long              currentColumn;
 
     public long occupation = 0;
-
-    public static Drone fakeDrone() {
-        if (fakeDrone == null) {
-            fakeDrone = new Drone();
-            fakeDrone.id = 0;
-            fakeDrone.payload = 100;
-        }
-        return fakeDrone;
-    }
 
     public long deliver(Warehouse warehouse, Item item, long qty, Command command) {
 
