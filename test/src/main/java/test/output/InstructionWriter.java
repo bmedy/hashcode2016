@@ -16,7 +16,7 @@ import java.util.List;
 
 public class InstructionWriter {
 
-    public static void flush(List<Instruction> instructions) throws IOException {
+    public static void flush(List<Instruction> instructions) {
     	try {
 
         List<String> output = new ArrayList<>();
