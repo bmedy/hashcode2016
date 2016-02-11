@@ -21,7 +21,7 @@ public class Item {
  	}
  	
  	@Override
- 	public String toString() {
- 		return "Item : " + id;
- 	}
+	public String toString() {
+		return "Item [id=" + id + ", weigth=" + weigth + "]";
+	}
 }
