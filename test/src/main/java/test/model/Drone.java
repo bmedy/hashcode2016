@@ -44,4 +44,13 @@ public class Drone {
         return deliveredItemCount;
 
     }
+    
+    private static Drone fakeDrone;
+    
+    public static Drone fakeDrone() {
+    	if (fakeDrone == null) {
+    		fakeDrone = new Drone();
+    	}
+    	return fakeDrone;
+    }
 }

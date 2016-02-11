@@ -1,6 +1,8 @@
 package test.model;
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -9,7 +11,11 @@ public class Warehouse {
 	public long id;
 	public long r;
 	public long c;
-	public Map<Item, Long> items;
+	public Map<Item, Long> items = new HashMap<Item, Long>() {
+		{
+			put(Item.fakeItem(), 10L);
+		}
+	};
 
 
 	public Warehouse(long id){

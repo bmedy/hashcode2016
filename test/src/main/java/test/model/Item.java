@@ -9,4 +9,14 @@ public class Item {
 	
 	public long    id;
  	public Integer weigth;
+ 	
+ 	private static Item fakeItem;
+ 	
+ 	public static Item fakeItem() {
+ 		if (fakeItem == null) {
+ 			fakeItem = new Item(0);
+ 			fakeItem.weigth = 10;
+ 		}
+ 		return fakeItem;
+ 	}
 }
