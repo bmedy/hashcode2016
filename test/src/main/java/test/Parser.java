@@ -17,7 +17,7 @@ public class Parser {
 
 	public static void parse(String path) throws IOException{
 		
-		List<String> lines = Files.readAllLines(Paths.get("resources/" + path));
+		List<String> lines = Files.readAllLines(Paths.get("src/main/resources/" + path));
 		Iterator<String> it = lines.stream().iterator();
 		
 			// line 1
