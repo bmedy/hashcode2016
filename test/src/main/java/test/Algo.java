@@ -22,20 +22,20 @@ public class Algo {
     }
 
     public static Drone findAvailableDrone(Warehouse warehouse, Command command) {
-    	long min = Long.MAX_VALUE;
-    	Drone drone = null;
-    	for (Drone currentD : Grid.drone_s) {
-    		long dist = currentD.getDistance(warehouse, command);
-    		if (drone == null || min > dist) {
-    			drone = currentD;
-    			min = dist;
-    		}
-    	}
-    	if (min == Long.MAX_VALUE) {
-    		throw new RuntimeException();
-    	}
+        long min = Long.MAX_VALUE;
+        Drone drone = null;
+        for (Drone currentD : Grid.drone_s) {
+            long dist = currentD.getDistance(warehouse, command);
+            if (drone == null || min > dist) {
+                drone = currentD;
+                min = dist;
+            }
+        }
+        if (min == Long.MAX_VALUE) {
+            throw new RuntimeException();
+        }
         System.out.println(drone.id + "     " + drone.occupation);
-    	return drone;
+        return drone;
     }
 
     /**
@@ -48,6 +48,7 @@ public class Algo {
     }
 
     public static void init() {
+        Grid.drone_s.forEach(d -> d.occupation = 0);
         Grid.drone_s.forEach(d -> d.currentRow = Grid.warehouses.get(0).r);
         Grid.drone_s.forEach(d -> d.currentColumn = Grid.warehouses.get(0).c);
     }
