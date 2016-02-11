@@ -32,7 +32,6 @@ public class Drone {
         // TODO : calculer le nombre de tours pour faire tout ca
         occupation += 1;
         occupation += Distance.distance(currentRow, currentColumn, warehouse.r, warehouse.c);
-        occupation += deliveredItemCount;
 
         return qty - deliveredItemCount;
 
