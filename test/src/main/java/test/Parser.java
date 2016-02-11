@@ -21,7 +21,10 @@ public class Parser {
 		Iterator<String> it = lines.stream().iterator();
 		
 			// line 1
-			String[] line = it.next().split("\\s+");
+		
+			String dataLine = it.next();
+			System.out.println(dataLine);
+			String[] line = dataLine.split("\\s+");
 			Grid.rows = Integer.valueOf(line[0]);
 			Grid.columns = Integer.valueOf(line[1]);
 			Grid.drones = Integer.valueOf(line[2]);
@@ -29,21 +32,28 @@ public class Parser {
 			Grid.payload = Integer.valueOf(line[4]);
 			
 			// line 2
+
+			dataLine = it.next();
+			System.out.println(dataLine);
 			Grid.items = new ArrayList<>();
-			for(int i = 0; i < Integer.valueOf(it.next()); i++){
+			for(int i = 0; i < Integer.valueOf(dataLine); i++){
 				Grid.items.add(new Item(i));
 			}
 			
 			// line 3
-			line = it.next().split("\\s+");
+			dataLine = it.next();
+			System.out.println(dataLine);
+			line = dataLine.split("\\s+");
 			Grid.items.get(0).weigth = Integer.valueOf(line[0]);
 			Grid.items.get(1).weigth = Integer.valueOf(line[1]);
 			Grid.items.get(2).weigth = Integer.valueOf(line[2]);
 			
 			// line 4
+			dataLine = it.next();
+			System.out.println(dataLine);
 			Grid.warehouses = new ArrayList<>();
-			for(int i = 0; i < Integer.valueOf(it.next()); i++){
-				line = it.next().split("\\s+");
+			for(int i = 0; i < Integer.valueOf(dataLine); i++){
+				line = dataLine.split("\\s+");
 				Warehouse w = new Warehouse(i);
 				w.r = Integer.valueOf(line[0]);
 				w.c = Integer.valueOf(line[1]);
