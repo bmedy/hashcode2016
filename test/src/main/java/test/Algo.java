@@ -28,10 +28,18 @@ public class Algo {
 			long remainsQty = quantity;
 			while (remainsQty > 0) {
 				Pair<Warehouse, Long> warehouseToQty = findWarehouseFor(item, quantity);
-				Drone drone = findAvailableDrone();
-				drone.deliver(warehouseToQty.first, item, warehouseToQty.second, command);
+				sendAllFromWarehouse(warehouseToQty.first, item, warehouseToQty.second, command);
 				remainsQty = remainsQty - warehouseToQty.second;
 			}
+		}
+	}
+	
+	public static void sendAllFromWarehouse(Warehouse warehouse, Item item, long quantity, Command command) {
+		long remainsQty = quantity;
+		while(remainsQty > 0) {
+			Drone drone = findAvailableDrone();
+			long qtyTakeByDrone = drone.deliver(warehouse, item, quantity, command);
+			remainsQty -= qtyTakeByDrone;
 		}
 	}
 	
