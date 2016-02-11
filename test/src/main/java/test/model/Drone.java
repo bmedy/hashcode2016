@@ -25,6 +25,8 @@ public class Drone {
         instructions.add(load);
         instructions.add(deliver);
 
+        // TODO : calculer le nombre de tours pour faire tout ca
+
         return qty - deliveredItemCount;
 
     }
