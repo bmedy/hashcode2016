@@ -56,4 +56,9 @@ public class Drone {
     	}
     	return fakeDrone;
     }
+    
+    @Override
+    public String toString() {
+    	return "drone : "  + id;
+    }
 }

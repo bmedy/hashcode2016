@@ -19,4 +19,9 @@ public class Item {
  		}
  		return fakeItem;
  	}
+ 	
+ 	@Override
+ 	public String toString() {
+ 		return "Item : " + id;
+ 	}
 }

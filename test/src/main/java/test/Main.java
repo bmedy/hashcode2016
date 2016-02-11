@@ -16,6 +16,8 @@ public class Main {
 			e.printStackTrace();
 		}
 		Algo.algo();
+		// print grid
+		Grid.print();
 		// output
 		Grid.drone_s.stream().forEach(drone -> InstructionWriter.flush(drone.instructions));
 	}
