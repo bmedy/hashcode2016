@@ -37,7 +37,7 @@ public class Main {
 	}
 	
 	public static void main(String[] tt) {
-		runFile("example.in");
+		runFile("busy_day.in");
 		//runFile("busy_day.in");
 		//runFile(Paths.get("mother_of_all_warehouses.in"));
 		//runFile(Paths.get("redundancy.in"));
