@@ -20,7 +20,7 @@ public class Main {
 	
 	public static void main(String[] tt) {
 		runFile(Paths.get("busy_day.in"));
-		runFile(Paths.get("mother_of_all_warehouses.in"));
-		runFile(Paths.get("redundancy.in"));
+		//runFile(Paths.get("mother_of_all_warehouses.in"));
+		//runFile(Paths.get("redundancy.in"));
 	}
 }
