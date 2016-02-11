@@ -7,9 +7,11 @@ import java.util.Map;
 
 public class Command {
     public long            id;
-    public Map<Item, Long> itemToQuantity;
+    public Map<Item, Long> itemToQuantity = new HashMap<>();
     public long            targetRow;
     public long            targetColumn;
+    
+    public Command(){}
     
 	public Command(long id, Map<Item, Long> itemToQuantity, long targetRow, long targetColumn) {
 		super();
