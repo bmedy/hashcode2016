@@ -7,12 +7,16 @@ import java.util.List;
 import test.output.DeliverInstruction;
 import test.output.Instruction;
 import test.output.LoadInstruction;
+import test.utils.Distance;
 
 
 public class Drone {
 
     public List<Instruction> instructions = new ArrayList<>();
     public long              payload;
+    public long              currentRow;
+    public long              currentColumn;
+    public long              occupation;
 
     public long deliver(Warehouse warehouse, Item item, long qty, Command command) {
 
@@ -26,6 +30,9 @@ public class Drone {
         instructions.add(deliver);
 
         // TODO : calculer le nombre de tours pour faire tout ca
+        occupation += 1;
+        occupation += Distance.distance(currentRow, currentColumn, warehouse.r, warehouse.c);
+        occupation += deliveredItemCount;
 
         return qty - deliveredItemCount;
 
