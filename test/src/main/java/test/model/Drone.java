@@ -12,12 +12,23 @@ import test.utils.Distance;
 
 public class Drone {
 
-	public long id;
+    private static Drone     fakeDrone;
+    public long              id;
     public List<Instruction> instructions = new ArrayList<>();
     public long              payload;
     public long              currentRow;
     public long              currentColumn;
-    public long              occupation   = 0;
+
+    public long occupation = 0;
+
+    public static Drone fakeDrone() {
+        if (fakeDrone == null) {
+            fakeDrone = new Drone();
+            fakeDrone.id = 0;
+            fakeDrone.payload = 100;
+        }
+        return fakeDrone;
+    }
 
     public long deliver(Warehouse warehouse, Item item, long qty, Command command) {
 
@@ -45,43 +56,43 @@ public class Drone {
         return deliveredItemCount;
 
     }
-    
-    private static Drone fakeDrone;
-    
-    public static Drone fakeDrone() {
-    	if (fakeDrone == null) {
-    		fakeDrone = new Drone();
-    		fakeDrone.id = 0;
-    		fakeDrone.payload = 100;
-    	}
-    	return fakeDrone;
-    }
-    
+
     @Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
-		return result;
-	}
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Drone other = (Drone) obj;
+        if (id != other.id) {
+            return false;
+        }
+        return true;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Drone other = (Drone) obj;
-		if (id != other.id)
-			return false;
-		return true;
-	}
+    public long getDistance(Warehouse warehouse, Command command) {
+        long dist = occupation;
+        dist += Distance.distance(currentRow, currentColumn, warehouse.r, warehouse.c);
+        dist += Distance.distance(warehouse.r, warehouse.c, command.targetRow, command.targetColumn);
+        return dist;
+    }
 
-	@Override
-	public String toString() {
-		return "Drone [id=" + id + ", instructions=" + instructions + ", payload=" + payload + ", currentRow="
-				+ currentRow + ", currentColumn=" + currentColumn + ", occupation=" + occupation + "]";
-	}
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (int) (id ^ id >>> 32);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Drone [id=" + id + ", instructions=" + instructions + ", payload=" + payload + ", currentRow="
+                + currentRow + ", currentColumn=" + currentColumn + ", occupation=" + occupation + "]";
+    }
 }
