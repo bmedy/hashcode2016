@@ -13,7 +13,7 @@ public abstract class Instruction {
     public final static String DELIVER = "D";
     public final static String WAIT    = "W";
 
-    public int    droneID;
+    public long   droneID;
     public String type;
 
 }

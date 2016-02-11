@@ -9,9 +9,9 @@ package test.output;
 
 public class DeliverInstruction extends Instruction {
 
-    public int orderID;
-    public int productID;
-    public int productCount;
+    public long orderID;
+    public long productID;
+    public long productCount;
 
     public DeliverInstruction() {
         this.type = Instruction.DELIVER;

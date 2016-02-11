@@ -9,12 +9,19 @@ package test.output;
 
 public class LoadInstruction extends Instruction {
 
-    public int warehouseID;
-    public int productID;
-    public int productCount;
+    public long warehouseID;
+    public long productID;
+    public long productCount;
 
     public LoadInstruction() {
         this.type = Instruction.LOAD;
+    }
+
+    public LoadInstruction(long warehouseID, long productID, long productCount) {
+        this.type = Instruction.LOAD;
+        this.warehouseID = warehouseID;
+        this.productID = productID;
+        this.productCount = productCount;
     }
 
 }

@@ -9,7 +9,7 @@ package test.output;
 
 public class WaitInstruction extends Instruction {
 
-    public int turnCount;
+    public long turnCount;
 
     public WaitInstruction() {
         this.type = Instruction.WAIT;
