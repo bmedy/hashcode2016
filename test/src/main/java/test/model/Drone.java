@@ -52,6 +52,7 @@ public class Drone {
     	if (fakeDrone == null) {
     		fakeDrone = new Drone();
     		fakeDrone.id = 0;
+    		fakeDrone.payload = 100;
     	}
     	return fakeDrone;
     }

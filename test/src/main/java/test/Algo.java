@@ -14,6 +14,8 @@ import test.model.Warehouse;
 
 public class Algo {
 
+	private static int dronenb = 0;
+	
     public static void algo() {
 
         init();
@@ -22,7 +24,7 @@ public class Algo {
     }
 
     public static Drone findAvailableDrone() {
-        return Grid.drone_s.get(0);
+        return Grid.drone_s.get(dronenb++ % Grid.drone_s.size());
     }
 
     /**
