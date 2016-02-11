@@ -11,4 +11,5 @@ public class Grid {
 	public static int drones;
 	public static int turns;
 	public static int payload;
+	public static int productTypeCount;
 }
