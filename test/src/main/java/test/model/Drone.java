@@ -12,15 +12,20 @@ import test.output.LoadInstruction;
 public class Drone {
 
     public List<Instruction> instructions = new ArrayList<>();
+    public long              payload;
 
-    public void deliver(Warehouse warehouse, Item item, long qty, Command command) {
+    public long deliver(Warehouse warehouse, Item item, long qty, Command command) {
 
-        warehouse.reduceItemQuantity(item, qty);
+        long deliveredItemCount = payload / item.weigth;
+        deliveredItemCount = deliveredItemCount < qty ? deliveredItemCount : qty;
+        warehouse.reduceItemQuantity(item, deliveredItemCount);
 
-        LoadInstruction load = new LoadInstruction(warehouse.id, item.id, qty);
-        DeliverInstruction deliver = new DeliverInstruction(command.id, item.id, qty);
+        LoadInstruction load = new LoadInstruction(warehouse.id, item.id, deliveredItemCount);
+        DeliverInstruction deliver = new DeliverInstruction(command.id, item.id, deliveredItemCount);
         instructions.add(load);
         instructions.add(deliver);
+
+        return qty - deliveredItemCount;
 
     }
 }
