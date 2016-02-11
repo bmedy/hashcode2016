@@ -53,7 +53,9 @@ public class Parser {
 			System.out.println(dataLine);
 			Grid.warehouses = new ArrayList<>();
 			for(int i = 0; i < Integer.valueOf(dataLine); i++){
-				line = dataLine.split("\\s+");
+				String location = it.next();
+				
+				line = location.split("\\s+");
 				Warehouse w = new Warehouse(i);
 				w.r = Integer.valueOf(line[0]);
 				w.c = Integer.valueOf(line[1]);
