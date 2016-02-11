@@ -3,6 +3,7 @@ package test;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 
 import test.model.Grid;
@@ -11,7 +12,7 @@ import test.model.Warehouse;
 
 public class Parser {
 
-	public static void parse(){
+	public static void parse(Path path){
 		
 		try (BufferedReader br = new BufferedReader(new FileReader("/tmp/example.in")))
 		{
