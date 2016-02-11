@@ -22,27 +22,28 @@ public class Algo {
     }
 
     public static Drone findAvailableDrone(Warehouse warehouse, Command command) {
-    	long min = Long.MAX_VALUE;
-    	Drone drone = null;
-    	for (Drone currentD : Grid.drone_s) {
-    		long dist = currentD.getDistance(warehouse, command);
-    		if (drone == null || min > dist) {
-    			drone = currentD;
-    			min = dist;
-    		}
-    	}
-    	return drone;
-//
-//        Drone res = null;
-//        long min = Long.MAX_VALUE;
-//        for (Drone drone : Grid.drone_s) {
-//            long tmp = drone.occupation;
-//            if (tmp < min) {
-//                min = tmp;
-//                res = drone;
-//            }
-//        }
-//        return res;
+        long min = Long.MAX_VALUE;
+        Drone drone = null;
+        for (Drone currentD : Grid.drone_s) {
+            long dist = currentD.getDistance(warehouse, command);
+            if (drone == null || min > dist) {
+                drone = currentD;
+                min = dist;
+            }
+        }
+        System.out.println(drone.id + "     " + drone.occupation);
+        return drone;
+        //
+        // Drone res = null;
+        // long min = Long.MAX_VALUE;
+        // for (Drone drone : Grid.drone_s) {
+        // long tmp = drone.occupation;
+        // if (tmp < min) {
+        // min = tmp;
+        // res = drone;
+        // }
+        // }
+        // return res;
     }
 
     /**
