@@ -18,8 +18,13 @@ public class Main {
 		// print grid
 		Grid.print();
 		// algo
+		System.out.println();
+		System.out.println();
 		System.out.println("ALGO");
 		Algo.algo();
+		System.out.println();
+		System.out.println();
+		System.out.println();
 		// output
 		Grid.drone_s.stream().forEach(drone -> InstructionWriter.flush(drone.instructions));
 	}
