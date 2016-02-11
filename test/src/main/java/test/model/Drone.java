@@ -33,6 +33,7 @@ public class Drone {
         occupation++;
         occupation += Distance.distance(currentRow, currentColumn, warehouse.r, warehouse.c);
         LoadInstruction load = new LoadInstruction(warehouse.id, item.id, deliveredItemCount);
+        load.droneID = id;
         instructions.add(load);
 
         currentRow = warehouse.r;
@@ -42,6 +43,7 @@ public class Drone {
         occupation += 1;
         occupation += Distance.distance(currentRow, currentColumn, command.targetRow, command.targetColumn);
         DeliverInstruction deliver = new DeliverInstruction(command.id, item.id, deliveredItemCount);
+        deliver.droneID = id;
         instructions.add(deliver);
 
         currentRow = command.targetRow;
