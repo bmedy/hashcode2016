@@ -20,4 +20,20 @@ public class Warehouse {
         long availableQty = items.get(item) - qty;
         items.put(item, new Long(availableQty));
     }
+    
+    public boolean has(Item item) {
+    	return items.containsKey(item);
+    }
+    
+    public long get(Item item, long quantity) {
+    	Long qtyInW = items.get(item);
+    	if (qtyInW != null) {
+    		if (qtyInW > quantity) {
+    			return quantity;
+    		} else {
+    			return qtyInW;
+    		}
+    	}
+    	return 0;
+    }
 }

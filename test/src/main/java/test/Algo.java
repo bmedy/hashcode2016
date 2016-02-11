@@ -44,14 +44,16 @@ public class Algo {
 	}
 	
 	public static Drone findAvailableDrone() {
-		todo;
+		return Grid.drone_s.get(0);
 	}
 	
 	/**
 	 * return Warehouse to quantity
 	 */
 	public static Pair<Warehouse, Long> findWarehouseFor(Item item, Long quantity) {
-		todo;
+		Warehouse warehouse = Grid.warehouses.stream().filter(w -> w.has(item)).findFirst().get();
+		long availableQty = warehouse.get(item, quantity);
+		return new Pair(warehouse, availableQty);
 	}
 	 
 }
