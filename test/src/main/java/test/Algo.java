@@ -22,6 +22,17 @@ public class Algo {
     }
 
     public static Drone findAvailableDrone() {
+//    	long min = Long.MAX_VALUE;
+//    	Drone drone = null;
+//    	for (Drone drone : Grid.drone_s) {
+//    		long dist = drone.getDistance(warehouse, command);
+//    		if (drone == null) {
+//    			
+//    		}
+//    	}
+//    	Grid.drone_s.stream().map(drone -> new Pair<Drone, Long>(drone, drone.getDistance(warehouse, command)))
+//    	.reduce((p1, p2) -> Math.min(p1.second, p2.));
+//    	
         Drone res = null;
         long min = Long.MAX_VALUE;
         for (Drone drone : Grid.drone_s) {
