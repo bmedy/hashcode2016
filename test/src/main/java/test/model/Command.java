@@ -24,7 +24,7 @@ public class Command {
     public static Command fakeCommand() {
     	if (fakeCommand == null) {
         	Map<Item, Long> itemToQuantity = new HashMap<>();
-        	itemToQuantity.put(Item.fakeItem(), 10L);
+        	itemToQuantity.put(Item.fakeItem(), 3L);
         	fakeCommand = new Command(0, itemToQuantity, 10, 10);	
     	}
     	return fakeCommand;

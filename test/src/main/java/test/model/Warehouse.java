@@ -28,7 +28,7 @@ public class Warehouse {
     }
     
     public boolean has(Item item) {
-    	return items.containsKey(item);
+    	return items.containsKey(item) && items.get(item) > 0;
     }
     
     @Override
