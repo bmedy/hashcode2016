@@ -17,6 +17,7 @@ import java.util.List;
 public class InstructionWriter {
 
     public static void flush(List<Instruction> instructions) throws IOException {
+    	try {
 
         List<String> output = new ArrayList<>();
         DeliverInstruction deliver;
@@ -39,6 +40,9 @@ public class InstructionWriter {
 
         String outFilePath = "/tmp/file.out";
         Files.write(Paths.get(outFilePath), output);
+    	} catch(Exception e) {
+    		e.printStackTrace();
+    	}
 
     }
 

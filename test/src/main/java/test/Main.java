@@ -15,6 +15,6 @@ public class Main {
 		Algo.algo();
 		
 		// output
-		Grid.drone_s.stream().forEach(drone -> {InstructionWriter.flush(drone.instructions)});
+		Grid.drone_s.stream().forEach(drone -> InstructionWriter.flush(drone.instructions));
 	}
 }
